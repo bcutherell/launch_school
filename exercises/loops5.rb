@@ -1,6 +1,10 @@
-say_hello = 0
+say_hello = true
+count = 0
 
-while say_hello < 5
-	say_hello += 1
-	puts 'Hello!'
+while say_hello
+  puts 'Hello!'
+
+  if count == 5
+  	say_hello = false
+  end
 end
