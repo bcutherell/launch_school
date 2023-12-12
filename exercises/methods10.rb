@@ -1,9 +1,9 @@
-def name(names)
-	names.sample
+def name(anything)
+	anything.sample
 end
 
-def activity(activities)
-	activities.sample
+def activity(practice)
+	practice.sample
 end
 
 def sentence(name, activity)
