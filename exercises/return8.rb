@@ -6,3 +6,5 @@ def count_sheep
 end
 
 puts count_sheep
+
+# print 0 through 4 and 10 and the end
