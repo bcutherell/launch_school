@@ -4,5 +4,7 @@ puts number
 if number == 5
 	puts '5 is a cool number!'
 else
-	puts 'Other number are cool too!'
+	puts 'Other numbers are cool too!'
 end
+ 
+# line 4 should be == not =
