@@ -1,4 +1,4 @@
-VALID_CHOICES = %w(rock paper scissors)
+VALID_CHOICES = %w(rock paper scissors spock lizard)
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -7,7 +7,14 @@ end
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
     (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+    (first == 'scissors' && second == 'paper') ||
+    (first == 'spock' && second == 'scissors') ||
+    (first == 'spock' && second == 'rock') ||
+    (first == 'lizard' && second == 'spock') ||
+    (first == 'lizard' && second == 'paper') ||
+    (first == 'rock' && second == 'lizard') ||
+    (first == 'paper' && second == 'spock') ||
+    (first == 'scissors' && second == 'lizard')
 end
 
 def display_results(player, computer)
