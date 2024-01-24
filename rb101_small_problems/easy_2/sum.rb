@@ -5,14 +5,20 @@ puts ">> Enter 's' to compute the sum, 'p' to compute the product."
 compute = gets.chomp
 
 sum = (1..integer).sum
-product = (1..integer).each do |i, h|
-  i * h
+
+def product(numbers)
+  final = 1
+  numbers.each { |i| final *= i }
+  final
 end
+
+solution = product(integer)
+
 
 if compute == 's'
   puts "The sum of the integers between 1 and #{integer} is #{sum}"
 end
 
 if compute == 'p'
-  puts "The product of the integers between 1 and #{integer} is #{product}"
+  puts "The product of the integers between 1 and #{integer} is #{solution}"
 end
