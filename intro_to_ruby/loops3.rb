@@ -6,4 +6,5 @@ def countdown(number)
 end
 
 countdown(5)
-
+countdown(-5)
+countdown(0)
