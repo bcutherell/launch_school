@@ -12,12 +12,6 @@ while index < students.length
 end
 
 
-
-
-
-
-
-
 #####
 
 # # Can you write the code necessary to get the desired output shown on the last line?
