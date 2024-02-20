@@ -1,15 +1,43 @@
+arr = [1]
+
+for i in arr do
+  a = 'World'
+end
+
+puts a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # What code could we add to see each student printed with their respective grade?
 
-students = ['Martin', 'Milo', 'Michelle']
-grades = [94, 87, 98]
+# students = ['Martin', 'Milo', 'Michelle']
+# grades = [94, 87, 98]
 
-index = 0
-while index < students.length
-  puts '------------'
-  puts students[index]
-  puts grades[index]
-  index += 1
-end
+# index = 0
+# while index < students.length
+#   puts '------------'
+#   puts students[index]
+#   puts grades[index]
+#   index += 1
+# end
 
 
 #####
