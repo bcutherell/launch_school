@@ -2,7 +2,7 @@
 
 
 
-## These two gave me trouble, look into them
+# These two gave me trouble, look into them
 
 # def test(str)
 #   str = str.upcase!
@@ -14,19 +14,20 @@
 # puts test_str
 
 
-# def test(str)
-#   str += '!'
-#   str.downcase!
-# end
+def test(str)
+  str += '!'
+  str.downcase!
+end
 
-# test_str = 'Written Assessment'
-# test(test_str)
+test_str = 'Written Assessment'
+test(test_str)
+puts test_str
 
-# puts test_str
+variable = 'string'
+puts variable.object_id
 
-
-
-
+variable += 'extra'
+puts variable.object_id
 
 
 
