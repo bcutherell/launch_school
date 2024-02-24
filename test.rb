@@ -1,7 +1,3 @@
-
-
-
-
 # These two gave me trouble, look into them
 
 # def test(str)
@@ -23,11 +19,11 @@ test_str = 'Written Assessment'
 test(test_str)
 puts test_str
 
-variable = 'string'
-puts variable.object_id
+# variable = 'string'
+# puts variable.object_id
 
-variable += 'extra'
-puts variable.object_id
+# variable += 'extra'
+# puts variable.object_id
 
 
 
