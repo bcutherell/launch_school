@@ -1,3 +1,22 @@
+
+def a_method(a)
+  a << 'world'
+end
+
+a = 'hello'
+a_method(a[0])
+p a
+
+
+# def change_name(name) 
+#   name = 'bob' # does this reassignment change the object outside the method?
+# end
+
+# name = 'jim'
+# change_name(name)
+# puts name
+
+
 # These two gave me trouble, look into them
 
 # def test(str)
@@ -10,14 +29,14 @@
 # puts test_str
 
 
-def test(str)
-  str += '!'
-  str.downcase!
-end
+# def test(str)
+#   str += '!'
+#   str.downcase!
+# end
 
-test_str = 'Written Assessment'
-test(test_str)
-puts test_str
+# test_str = 'Written Assessment'
+# test(test_str)
+# puts test_str
 
 # variable = 'string'
 # puts variable.object_id
