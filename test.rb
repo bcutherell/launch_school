@@ -1,11 +1,32 @@
-
-def a_method(a)
-  a << 'world'
+def even_or_odd(number)
+  if (number % 2) == 0
+    puts "Even"
+  else
+    puts "Odd"
+  end
 end
 
-a = 'hello'
-a_method(a[0])
-p a
+even_or_odd(1)
+even_or_odd(2)
+even_or_odd(50)
+even_or_odd(51)
+
+
+
+# array = [1, 2, 3, 4, 5]
+
+# p array.select do |num|
+#     puts num if num.odd?
+#   end
+
+
+# def a_method(a)
+#   a << 'world'
+# end
+
+# a = 'hello'
+# a_method(a[0])
+# p a
 
 
 # def change_name(name) 
