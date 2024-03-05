@@ -1,9 +1,22 @@
-require 'date'
+def my_method(arg)
+  p arg.object_id
+  arg = "dog"
+  puts arg
+end
 
-puts Date.civil
-puts Date.civil(2016)
-puts Date.civil(2016, 5)
-puts Date.civil(2016, 5, 13)
+animal = "dog"
+p animal.object_id
+my_method(animal)
+p animal.object_id
+
+
+
+# require 'date'
+
+# puts Date.civil
+# puts Date.civil(2016)
+# puts Date.civil(2016, 5)
+# puts Date.civil(2016, 5, 13)
 
 
 
