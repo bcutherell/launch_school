@@ -1,13 +1,46 @@
-def my_method(arg)
-  p arg.object_id
-  arg = "dog"
-  puts arg
+def sum_method(number)
+  total = 0
+  1.upto(number) { |value| total += value}
+  total
 end
 
-animal = "dog"
-p animal.object_id
-my_method(animal)
-p animal.object_id
+def product_method(number)
+  total = 1
+  1.upto(number) { |value| total *= value}
+  total
+end
+
+puts ">> Please enter an integer greater than 0:"
+integer = gets.chomp.to_i
+
+puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+s_or_p = gets.chomp
+
+
+if s_or_p == 's'
+  sum = sum_method(integer)
+  puts "The sum of the integers between 1 and #{integer} is #{sum}"
+elsif s_or_p == 'p'
+  product = product_method(integer)
+  puts "The product of the integers between 1 and #{integer} is #{product}"
+else
+  puts "Error, start over please."
+end
+
+
+
+
+
+# def my_method(arg)
+#   p arg.object_id
+#   arg = "dog"
+#   puts arg
+# end
+
+# animal = "dog"
+# p animal.object_id
+# my_method(animal)
+# p animal.object_id
 
 
 
@@ -17,29 +50,6 @@ p animal.object_id
 # puts Date.civil(2016)
 # puts Date.civil(2016, 5)
 # puts Date.civil(2016, 5, 13)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -59,29 +69,6 @@ p animal.object_id
 # x.each do |x|
 #   puts x
 # end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
