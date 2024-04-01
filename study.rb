@@ -1,34 +1,58 @@
-def sum_method(number)
-  total = 0
-  1.upto(number) { |value| total += value}
-  total
+contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
+contacts = {"Joe Smith" => {}}
+keys = [:email, :address, :phone]
+
+contacts.each do |name, hash|
+  keys.each do |field|
+    hash[field] = contact_data.shift
+  end
 end
 
-def product_method(number)
-  total = 1
-  1.upto(number) { |value| total *= value}
-  total
-end
-
-puts ">> Please enter an integer greater than 0:"
-integer = gets.chomp.to_i
-
-puts ">> Enter 's' to compute the sum, 'p' to compute the product."
-s_or_p = gets.chomp
+p contacts
 
 
-if s_or_p == 's'
-  sum = sum_method(integer)
-  puts "The sum of the integers between 1 and #{integer} is #{sum}"
-elsif s_or_p == 'p'
-  product = product_method(integer)
-  puts "The product of the integers between 1 and #{integer} is #{product}"
-else
-  puts "Error, start over please."
-end
+# def stringy(string_length, optional=1)
+#   numbers = []
 
+# if optional == 1
+#   string_length.times do |index|
+#     number = index.even? ? 1 : 0
+#     numbers << number
+#   end
 
+# elsif optional == 0
+#   string_length.times do |index|
+#     number = index.even? ? 0 : 1
+#     numbers << number
+#   end
 
+# else
+#   puts "Please put either 1 or 0"
+# end
+
+#   numbers.join
+# end
+
+# puts stringy(6, 0)
+# puts stringy(9, 0)
+# puts stringy(4, 0)
+# puts stringy(7, 0)
+
+# rb101 small problems, easy 3, exclusive or
+# def xor?(argument_1, argument_2)
+#   if argument_1 == true && argument_2 == false
+#     true
+#   elsif argument_1 == false && argument_2 == true
+#     true
+#   else
+#     false
+#   end
+# end
+
+# p xor?(5.even?, 4.even?) == true
+# p xor?(5.odd?, 4.odd?) == true
+# p xor?(5.odd?, 4.even?) == false
+# p xor?(5.even?, 4.odd?) == false
 
 
 # def my_method(arg)
