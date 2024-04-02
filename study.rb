@@ -1,14 +1,18 @@
-contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
-contacts = {"Joe Smith" => {}}
-keys = [:email, :address, :phone]
-
-contacts.each do |name, hash|
-  keys.each do |field|
-    hash[field] = contact_data.shift
-  end
+def mess_with_vars(one, two, three)
+  one.gsub!("one","two")
+  two.gsub!("two","three")
+  three.gsub!("three","one")
 end
 
-p contacts
+one = "one"
+two = "two"
+three = "three"
+
+mess_with_vars(one, two, three)
+
+puts "one is: #{one}"
+puts "two is: #{two}"
+puts "three is: #{three}"
 
 
 # def stringy(string_length, optional=1)
