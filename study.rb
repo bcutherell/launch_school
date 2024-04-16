@@ -1,19 +1,23 @@
-def mess_with_vars(one, two, three)
-  one.gsub!("one","two")
-  two.gsub!("two","three")
-  three.gsub!("three","one")
+def test
+  puts "written assessment"
 end
 
-one = "one"
-two = "two"
-three = "three"
+var = test
 
-mess_with_vars(one, two, three)
+# if var
+#   puts "written assessment"
+# else
+#   puts "interview"
+# end
 
-puts "one is: #{one}"
-puts "two is: #{two}"
-puts "three is: #{three}"
 
+# def fix(value)
+#   value[1] = 'x'
+#   value
+# end
+
+# s = 'abc'
+# t = fix(s)
 
 # def stringy(string_length, optional=1)
 #   numbers = []
