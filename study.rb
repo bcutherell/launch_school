@@ -1,65 +1,8 @@
-array = [2, 4, 6, 8]
+array = [1, 2, 3, 4, 5]
 
-another_num = 0
-index = 0
-loop do
-  puts (array[index] - 2)
-  another_num = array[index] - 2
-  index += 1
-  break if (array.size) == index
+array.select do |num|
+  puts num if num.odd?
 end
-
-puts another_num
-
-
-
-# def non_mutating_delete(arr)
-# end
-
-# # Test case 1
-# arr = [1, 2, 3]
-# p arr.last
-# p non_mutating_delete(arr) == [1, 2] #=> true
-# p arr == [1, 2, 3] #=> true
-
-# # Test case 2
-# arr = ['a', 'b', 'c', 'd']
-# p non_mutating_delete(arr) == ['a', 'b', 'c'] #=> true
-# p arr == ['a', 'b', 'c', 'd'] #=> true
-
-
-
-
-
-
-# def mutating_delete(arr)
-#   arr.pop
-#   arr
-# end
-
-# # Test case 1
-# arr = [1, 2, 3]
-# p mutating_delete(arr) == [1, 2] #=> true
-# p arr == [1, 2] #=> true
-
-# # Test case 2
-# arr = ['a', 'b', 'c', 'd']
-# p mutating_delete(arr) == ['a', 'b', 'c'] #=> true
-# p arr == ['a', 'b', 'c'] #=> true
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
