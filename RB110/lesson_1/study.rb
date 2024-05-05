@@ -1,7 +1,10 @@
-pets = ['cat', 'parrot', 'dog', 'fish']
-
-p pets.map do |pet|
-  pet.size == 3
+def greeting
+  puts 'Hello!'
 end
 
-p pets
+number_of_greetings = 2
+
+while number_of_greetings > 0
+  greeting
+  number_of_greetings -= 1
+end
