@@ -1,10 +1,12 @@
-def greeting
-  puts 'Hello!'
-end
+numbers = [7, 3, 5, 2, 1, 8, 4]
+counter = numbers.size
 
-number_of_greetings = 2
+loop do
+  number = numbers[-counter]
+  for num in 1..number
+    puts num
+  end
 
-while number_of_greetings > 0
-  greeting
-  number_of_greetings -= 1
+  break if counter == 1
+  counter -=1
 end

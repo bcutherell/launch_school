@@ -1,3 +1,3 @@
 flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 
-p flintstones.include?('Be').index
+p flintstones.index { |name| name[0, 2] == "Be" }
