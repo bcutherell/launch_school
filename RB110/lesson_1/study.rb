@@ -1,12 +1,7 @@
-numbers = [7, 3, 5, 2, 1, 8, 4]
-counter = numbers.size
+numbers = [1, 2, 4, 5, 7, 8, 10, 13, 14]
+even_numbers, odd_numbers = numbers.partition do |number|
+                              number.even?
+                            end
 
-loop do
-  number = numbers[-counter]
-  for num in 1..number
-    puts num
-  end
-
-  break if counter == 1
-  counter -=1
-end
+p odd_numbers
+p even_numbers
