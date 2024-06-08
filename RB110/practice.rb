@@ -44,3 +44,40 @@
 
 #-------------------------------
 
+# munsters = {
+#   "Herman" => { "age" => 32, "gender" => "male" },
+#   "Lily" => { "age" => 30, "gender" => "female" },
+#   "Grandpa" => { "age" => 402, "gender" => "male" },
+#   "Eddie" => { "age" => 10, "gender" => "male" },
+#   "Marilyn" => { "age" => 23, "gender" => "female"}
+# }
+
+# total_age_males = 0
+
+# munsters.each do |member|
+#   member.each do |details|
+#     if details['gender'] == 'male'
+#       total_age_males += details['age']
+#     end
+#   end
+# end
+
+# p total_age_males
+
+# ----------------------------------
+
+munsters = {
+  "Herman" => { "age" => 32, "gender" => "male" },
+  "Lily" => { "age" => 30, "gender" => "female" },
+  "Grandpa" => { "age" => 402, "gender" => "male" },
+  "Eddie" => { "age" => 10, "gender" => "male" },
+  "Marilyn" => { "age" => 23, "gender" => "female"}
+}
+
+# munsters.each_pair do |key, value|
+#   puts "#{key} is a #{value['age']}-year-old #{value['gender']}."
+# end
+
+munsters.each do |key, value|
+  puts "#{key} is a #{value['age']}"
+end
