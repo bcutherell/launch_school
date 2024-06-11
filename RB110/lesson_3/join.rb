@@ -25,13 +25,26 @@
 # str.join(punct)
 # end
 
-def joinor(arr, punctuation = ', ', delim = 'or')
-  if arr.length <= 1
-    arr.join
-  elsif arr.length == 2
-    arr.join (' or ')
+# def joinor(arr, punctuation = ', ', delim = 'or')
+#   if arr.length <= 1
+#     arr.join
+#   elsif arr.length == 2
+#     arr.join (" #{delim} ")
+#   else
+#     arr[0..-2].join(punctuation) + ', ' + delim + ' ' + arr[-1].to_s
+#   end
+# end
+
+
+
+def joinor(arr, delimiter = ', ', word = 'or')
+  case arr.size
+  when 0 then ''
+  when 1 then arr.first.to_s
+  when 2 then arr.join(" #{word} ")
   else
-    arr[0..-2].join(punctuation) + ', ' + delim + ' ' + arr[-1].to_s
+    arr[-1] = "#{word} #{arr[-1]}"
+    arr.join(delimiter)
   end
 end
 
@@ -39,3 +52,5 @@ p joinor([1, 2])
 p joinor([1, 2, 3])
 p joinor([1, 2, 3], '; ')
 p joinor([1, 2, 3], ', ', 'and')
+p joinor([])
+p joinor([1])
