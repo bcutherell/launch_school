@@ -1,4 +1,0 @@
-empty = ""
-
-
-empty = String.new

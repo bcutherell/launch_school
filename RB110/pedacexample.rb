@@ -36,7 +36,7 @@ def determine_missing_letter(array)
   return array if array.size < 1
   greater_array = (array[0]..array[-1]).to_a
   (greater_array - array)[0].swapcase
-end  
+end
 
 p determine_missing_letter(['a','b','c','d','f']) == 'E'
 p determine_missing_letter(['o','q','r','s']) == 'P'
