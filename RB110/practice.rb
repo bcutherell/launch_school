@@ -65,3 +65,30 @@
 # p total_age_males
 
 # ---------------------------------
+
+#wiki problem about returning the number of pairs
+
+# def pairs(arr)
+#   arr_uniq = arr.uniq
+#   counter = 0
+  
+#   arr_uniq.each do |num|
+#     counter += arr.count(num) / 2
+#   end
+
+# counter
+# end
+
+# p pairs([1, 2, 5, 6, 5, 2])
+# p pairs([1, 2, 2, 20, 6, 20, 2, 6, 2])
+# p pairs([0, 0, 0, 0, 0, 0, 0])
+# p pairs([1000, 1000])
+# p pairs([])
+# p pairs([54])
+
+# p pairs([1, 2, 5, 6, 5, 2]) == 2
+# p pairs([1, 2, 2, 20, 6, 20, 2, 6, 2]) == 4
+# p pairs([0, 0, 0, 0, 0, 0, 0]) == 3
+# p pairs([1000, 1000]) == 1
+# p pairs([]) == 0
+# p pairs([54]) == 0
