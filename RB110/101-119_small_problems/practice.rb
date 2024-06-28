@@ -1,16 +1,16 @@
-def delete_digit(integer)
+# def delete_digit(integer)
 
-end
+# end
 
-p delete_digit(791983)
-p delete_digit(152)
-p delete_digit(1001)
-p delete_digit(10)
+# p delete_digit(791983)
+# p delete_digit(152)
+# p delete_digit(1001)
+# p delete_digit(10)
 
-p delete_digit(791983) == 91983
-p delete_digit(152) == 52
-p delete_digit(1001) == 101
-p delete_digit(10) == 1
+# p delete_digit(791983) == 91983
+# p delete_digit(152) == 52
+# p delete_digit(1001) == 101
+# p delete_digit(10) == 1
 
 =begin
 Given an integer n, find the maximal number you can obtain by deleting exactly one digit of the given number.
@@ -62,16 +62,13 @@ def delete_digit(integer)
   digits_array.each_with_index do |digit, index|
     working_digits_array = digits_array.map { |int| int }
     working_digits_array.delete_at(index)
-
-    p working_digits_array
+    possible_maximal_numbers << working_digits_array
   end
 
-
-
-
+possible_maximal_numbers.sort.pop.join.to_i
 end
 
-delete_digit(791983) == 91983
-# delete_digit(152) == 52
-# delete_digit(1001) == 101
-# delete_digit(10) == 1
+p delete_digit(791983) == 91983
+p delete_digit(152) == 52
+p delete_digit(1001) == 101
+p delete_digit(10) == 1
