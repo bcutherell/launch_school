@@ -2,6 +2,7 @@ def count_occurrences(arr)
   hsh = {}
 
   arr.uniq.each do |word|
+    word.downcase
     hsh[word] = arr.count(word)
   end
 
