@@ -1,0 +1,45 @@
+en:
+  welcome: "Welcome to Calculator! Enter your name, please:"
+  valid_name: "Make sure to use a valid name, please!"
+  hello: "Hello"
+  helping: "I look forward to helping you today!"
+  first_number: "What is the first number you would like to use?"
+  second_number: "What is the second number you would like to use?"
+  valid_number: "Hmmm... that doesn't look like a valid number"
+  must_choose: "Please choose either 1, 2, 3, or 4"
+  two_numbers: "the two numbers..."
+  result: "the result is"
+  repeat: "Do you want to perform another calculation? (Y to calculate again)"
+  thank_you: "Thank you for using this calculator! Have a good day :)"
+  operators: "What operation would you like to perform?\n
+              1) add\n
+              2) subtract\n
+              3) multiply\n
+              4) divide"
+  adding: "Adding"
+  subtracting: "Subtracting"
+  multiplying: "Multiplying"
+  dividing: "Dividing"
+
+es:
+  welcome: "¡Bienvenido a Calculadora! Introduzca su nombre:"
+  valid_name: "¡Asegúrese de utilizar un nombre válido, por favor!"
+  hello: "Hola"
+  helping: "¡Espero poder ayudarte hoy!"
+  first_number: "¿Cuál es el primer número que le gustaría usar?"
+  second_number: "¿Cuál es el segundo número que te gustaría usar?"
+  valid_number: "Hmmm... ese no parece un número válido"
+  must_choose: "Por favor elija 1, 2, 3 o 4"
+  two_numbers: "los dos numeros..."
+  result: "¡El resultado es"
+  repeat: "¿Quieres realizar otro cálculo? (Y para calcular nuevamente)"
+  thank_you: "¡Gracias por usar mi calculadora! Que tenga un buen día :)"
+  operators: "¿Qué operación te gustaría realizar?\n
+              1) agregar\n
+              2) restar\n
+              3) multiplicar\n
+              4) dividir"
+  adding: "Sumando"
+  subtracting: "Restando"
+  multiplying: "Multiplicando"
+  dividing: "Dividiendo"
