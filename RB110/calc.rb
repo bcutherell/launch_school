@@ -43,7 +43,7 @@ loop do
 end
 
 prompt("#{messages('hello', LANGUAGE)} #{name.capitalize}! #{messages('helping', LANGUAGE)}")
-sleep(1) # pause for the user to read output, and to see 2 lines of text loaded
+sleep(1) # pause for the user to read output, and to see 2 lines of text have loaded
 
 loop do # main loop
   number1 = ''
