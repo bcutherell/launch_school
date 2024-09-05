@@ -14,7 +14,24 @@ def valid_number?(num)
   true if num.to_i.to_s == num || num.to_f.to_s == num
 end
 
-def operation_to_message(op)
+def welcome_user(name)
+  prompt("#{messages('hello', LANGUAGE)} #{name.capitalize}! #{messages('helping', LANGUAGE)}")
+end
+
+def get_name
+  name = ''
+  loop do
+    name = gets.chomp.strip
+    if name.empty?
+      prompt(messages('valid_name', LANGUAGE))
+    else
+      break
+    end
+  end
+  name
+end
+
+def op_to_message(op)
   case op
   when '1'
     messages('adding', LANGUAGE)
@@ -27,68 +44,24 @@ def operation_to_message(op)
   end
 end
 
-def calculate_result(operator, number1, number2)
-  case operator
-  when '1'
-    number1 + number2
-  when '2'
-    number1 - number2
-  when '3'
-    number1 * number2
-  when '4'
-    number1.to_f / number2.to_f
-  end
-end
-
-system('clear')
-
-prompt(messages('welcome', LANGUAGE))
-
-name = ''
-loop do
-  name = gets.chomp.strip
-
-  if name.empty?
-    prompt(messages('valid_name', LANGUAGE))
-  else
-    break
-  end
-end
-
-prompt("#{messages('hello', LANGUAGE)} #{name.capitalize}! #{messages('helping', LANGUAGE)}")
-sleep(1)
-# pause for the user to read output, and to see 2 lines of text have loaded
-
-loop do # main loop
-  number1 = ''
-  number2 = ''
-
+def prompt_number(number)
+  number_input = ''
   loop do
-    prompt(messages('first_number', LANGUAGE))
-    number1 = gets.chomp.strip
+    prompt(messages(number, LANGUAGE))
+    number_input = gets.chomp.strip
 
-    if valid_number?(number1)
-      number1 = number1.to_f
+    if valid_number?(number_input)
+      number_input = number_input.to_f
       break
     else
       prompt(messages('valid_number', LANGUAGE))
     end
   end
+  number_input
+end
 
-  loop do
-    prompt(messages('second_number', LANGUAGE))
-    number2 = gets.chomp.strip
-
-    if valid_number?(number2)
-      number2 = number2.to_f
-      break
-    else
-      prompt(messages('valid_number', LANGUAGE))
-    end
-  end
-
+def prompt_operator
   prompt(messages('operators', LANGUAGE))
-
   operator = ''
   loop do
     operator = gets.chomp
@@ -99,19 +72,46 @@ loop do # main loop
       prompt(messages('must_choose', LANGUAGE))
     end
   end
+  operator
+end
 
-  prompt("#{operation_to_message(operator)} #{messages('two_numbers', LANGUAGE)}")
+def calculate_result(operator, number1, number2)
+  case operator
+  when '1'
+    number1 + number2
+  when '2'
+    number1 - number2
+  when '3'
+    number1 * number2
+  when '4'
+    number1 / number2
+  end
+end
+
+def output_result(operator)
+  prompt("#{op_to_message(operator)} #{messages('two_numbers', LANGUAGE)}")
+end
+
+system('clear')
+
+prompt(messages('welcome', LANGUAGE))
+name = get_name
+welcome_user(name)
+sleep(1)
+# pause for the user to read output, and to see 2 lines of text have loaded
+
+loop do # main loop
+  number1 = prompt_number('first_number')
+  number2 = prompt_number('second_number')
+  operator = prompt_operator
+  output_result(operator)
   sleep(0.75) # for dramatic effect
-
   result = calculate_result(operator, number1, number2).round(2)
-
-  prompt("#{messages('result', LANGUAGE)} #{result}!")
-
+  prompt("#{messages('result', LANGUAGE)} #{result}")
   prompt(messages('repeat', LANGUAGE))
   answer = gets.chomp.strip
   break unless answer.downcase.start_with?('y')
-
-system('clear')
+  system('clear')
 end
 
 prompt(messages('thank_you', LANGUAGE))
