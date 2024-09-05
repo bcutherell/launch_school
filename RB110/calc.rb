@@ -88,6 +88,19 @@ def calculate_result(operator, number1, number2)
   end
 end
 
+def full_output(operator, number1, number2, result)
+  case operator
+  when '1'
+    "#{number1} + #{number2} = #{result}"
+  when '2'
+    "#{number1} - #{number2} = #{result}"
+  when '3'
+    "#{number1} * #{number2} = #{result}"
+  when '4'
+    "#{number1} / #{number2} = #{result}"
+  end
+end
+
 def output_result(operator)
   prompt("#{op_to_message(operator)} #{messages('two_numbers', LANGUAGE)}")
 end
@@ -107,6 +120,7 @@ loop do # main loop
   output_result(operator)
   sleep(0.75) # for dramatic effect
   result = calculate_result(operator, number1, number2).round(2)
+  prompt(full_output(operator, number1, number2, result))
   prompt("#{messages('result', LANGUAGE)} #{result}")
   prompt(messages('repeat', LANGUAGE))
   answer = gets.chomp.strip
