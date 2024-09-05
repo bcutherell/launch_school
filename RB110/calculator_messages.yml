@@ -1,0 +1,99 @@
+beginning: # Start the program by setting the language
+  select_language: "Select your language (En)glish, (Es)pañol, (De)utsch\n"
+  try_again: "Please try again\n"
+
+en:
+  #Intro
+  welcome: "Welcome to Calculator! Enter your name:"
+  valid_name: "Please enter a valid name"
+  hi: "Hi"
+
+  #Opreations
+  adding: "Adding"
+  subtracting: "Subtracting"
+  multiplying: "Multiplying"
+  dividing: "Dividing"
+
+  #Inputs & Validations
+  enter_number: "Enter a number"
+  invalid_number: "Hmm...that doesn't look like a valid number"
+
+  operator_prompt: "What operation would you like to perform? \n
+        1) add\n
+        2) subtract\n
+        3) multiply\n
+        4) divide"
+  valid_operation: "Must choose 1, 2, 3, or 4"
+
+  #Output
+  two_numbers: "the two numbers..."
+  divide_by_zero_error: "You can't divide by zero!"
+  again_question: "Would you like to perform another calculation? (Y to calculate again)"
+  the_result: "The result is "
+
+  #Outro
+  thank_you: "Thank you for using calculator! Good bye!"
+
+es:
+  #Intro
+  welcome: "¡Bienvenido a Calculadora! Introduzca su nombre:"
+  valid_name: "Por favor, introduce un nombre válido"
+  hi: "Hola"
+
+  #Opreations
+  adding: "Sumando"
+  subtracting: "Restando"
+  multiplying: "Multiplicar"
+  dividing: "Dividiendo"
+
+  #Inputs & Validations
+  enter_number: "Introduce un número"
+  invalid_number: "Hmm... eso no parece un número válido"
+
+  operator_prompt:  "¿Qué operación desea realizar? \n
+        1) sumar\n
+        2) restar\n
+        3) multiplicar\n
+        4) dividir"
+  valid_operation: "Debe elegir 1, 2, 3, o 4"
+
+  #Output
+  two_numbers: "los dos números..."
+  divide_by_zero_error: "¡No se puede dividir por cero!"
+  again_question: "¿Desea realizar otro cálculo? (Y para calcular de nuevo)"
+  the_result: "El resultado es "
+
+  #Outro
+  thank_you: "¡Gracias por usar la calculadora! Adiós!"
+
+de:
+  #Intro
+  welcome: "Willkommen bei Calculator! Geben Sie Ihren Namen ein:"
+  valid_name: "Bitte geben Sie einen gültigen Namen ein"
+  hi: "Hallo"
+
+  #Opreations
+  adding: "Hinzufügen"
+  subtracting: "Subtrahieren"
+  multiplying: "Multiplizieren"
+  dividing: "Dividieren"
+
+  #Inputs & Validations
+  enter_number: "Gib eine Zahl ein"
+  invalid_number: "Hmm...das sieht nicht nach einer gültigen Zahl aus"
+
+  operator_prompt: "Welche Operation möchten Sie durchführen? \n
+        1) addieren\n
+        2) subtrahieren\n
+        3) multiplizieren\n
+        4) dividieren"
+  valid_operation: "Muss 1, 2, 3, oder 4"
+
+  #Output
+  two_numbers: "die beiden Zahlen..."
+  divide_by_zero_error: "Du kannst nicht durch Null dividieren!"
+  again_question: "Möchten Sie eine weitere Berechnung durchführen? (Y, um erneut zu rechnen)"
+  the_result: "Das Ergebnis ist "
+
+  #Outro
+  thank_you: "Danke, dass Sie den Taschenrechner benutzt haben! Auf Wiedersehen!"

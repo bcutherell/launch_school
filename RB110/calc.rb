@@ -27,13 +27,26 @@ def operation_to_message(op)
   end
 end
 
+def calculate_result(operator, number1, number2)
+  case operator
+  when '1'
+    number1 + number2
+  when '2'
+    number1 - number2
+  when '3'
+    number1 * number2
+  when '4'
+    number1.to_f / number2.to_f
+  end
+end
+
 system('clear')
 
 prompt(messages('welcome', LANGUAGE))
 
 name = ''
 loop do
-  name = gets.chomp
+  name = gets.chomp.strip
 
   if name.empty?
     prompt(messages('valid_name', LANGUAGE))
@@ -48,23 +61,26 @@ sleep(1)
 
 loop do # main loop
   number1 = ''
+  number2 = ''
+
   loop do
     prompt(messages('first_number', LANGUAGE))
-    number1 = gets.chomp
+    number1 = gets.chomp.strip
 
     if valid_number?(number1)
+      number1 = number1.to_f
       break
     else
       prompt(messages('valid_number', LANGUAGE))
     end
   end
 
-  number2 = ''
   loop do
     prompt(messages('second_number', LANGUAGE))
-    number2 = gets.chomp
+    number2 = gets.chomp.strip
 
     if valid_number?(number2)
+      number2 = number2.to_f
       break
     else
       prompt(messages('valid_number', LANGUAGE))
@@ -87,22 +103,15 @@ loop do # main loop
   prompt("#{operation_to_message(operator)} #{messages('two_numbers', LANGUAGE)}")
   sleep(0.75) # for dramatic effect
 
-  result = case operator
-           when '1'
-             number1.to_i + number2.to_i
-           when '2'
-             number1.to_i - number2.to_i
-           when '3'
-             number1.to_i * number2.to_i
-           when '4'
-             number1.to_f / number2.to_f
-           end
+  result = calculate_result(operator, number1, number2).round(2)
 
   prompt("#{messages('result', LANGUAGE)} #{result}!")
 
   prompt(messages('repeat', LANGUAGE))
-  answer = gets.chomp
+  answer = gets.chomp.strip
   break unless answer.downcase.start_with?('y')
+
+system('clear')
 end
 
 prompt(messages('thank_you', LANGUAGE))
