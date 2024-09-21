@@ -39,10 +39,22 @@ def empty_squares(brd)
   brd.keys.select { |num| brd[num] == INITIAL_MARKER }
 end
 
+def joinor(array, delimiter=', ', joining_word='or')
+  if array.length == 1
+    array[0].to_s
+  elsif array.length == 2
+    array.join(" #{joining_word} ")
+  else
+  "#{array[0...-1].join(delimiter)}#{delimiter}#{joining_word} #{array.last}"
+  end
+end
+
+#{empty_squares(brd).join(', ')}
+
 def player_places_piece!(brd)
   square = ''
   loop do
-    prompt "Choose a square (#{empty_squares(brd).join(', ')}):"
+    prompt "Choose a square (#{joinor(empty_squares(brd))}):"
     square = gets.chomp.to_i
     break if empty_squares(brd).include?(square)
     prompt "Sorry, that's not a valid choice."
@@ -63,12 +75,17 @@ def someone_won?(brd)
   !!detect_winner(brd)
 end
 
+# def game_score(play_score, comp_score, brd)
+#   play_score += 1 if detect_winner(brd) == 'Player'
+#   comp_score += 1 if detect_winner(brd) == 'Computer'
+# end
+
 def detect_winner(brd)
   WINNING_LINES.each do |line|
     if brd.values_at(*line).count(PLAYER_MARKER) == 3
       return 'Player'
     elsif brd.values_at(*line).count(COMPUTER_MARKER) == 3
-      return 'computer'
+      return 'Computer'
     end
   end
   nil
@@ -76,6 +93,8 @@ end
 
 loop do # main loop
   board = initialize_board
+  player_score = 0
+  computer_score = 0
 
   loop do
     display_board(board)
@@ -93,6 +112,21 @@ loop do # main loop
     prompt "#{detect_winner(board)} won!"
   else
     prompt "It's a tie!"
+  end
+
+  if detect_winner(board) == 'Player'
+    player_score += 1
+  elsif detect_winner(board) == 'Computer'
+    computer_score += 1
+  end
+
+  prompt "Player score is #{player_score}"
+  prompt "Computer score is #{computer_score}"
+
+  if player_score == 5
+    prompt "Player wins!"
+  elsif computer_score == 5
+    prompt "Computer wins!"
   end
 
   prompt "Play again? (y or n)"
