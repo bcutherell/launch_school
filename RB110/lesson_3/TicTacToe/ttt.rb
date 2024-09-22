@@ -91,10 +91,10 @@ def detect_winner(brd)
   nil
 end
 
+player_score = 0
+computer_score = 0
 loop do # main loop
   board = initialize_board
-  player_score = 0
-  computer_score = 0
 
   loop do
     display_board(board)
@@ -125,8 +125,10 @@ loop do # main loop
 
   if player_score == 5
     prompt "Player wins!"
+    player_score = 0
   elsif computer_score == 5
     prompt "Computer wins!"
+    computer_score = 0
   end
 
   prompt "Play again? (y or n)"
