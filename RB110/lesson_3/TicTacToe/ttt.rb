@@ -75,11 +75,6 @@ def someone_won?(brd)
   !!detect_winner(brd)
 end
 
-# def game_score(play_score, comp_score, brd)
-#   play_score += 1 if detect_winner(brd) == 'Player'
-#   comp_score += 1 if detect_winner(brd) == 'Computer'
-# end
-
 def detect_winner(brd)
   WINNING_LINES.each do |line|
     if brd.values_at(*line).count(PLAYER_MARKER) == 3
@@ -91,7 +86,7 @@ def detect_winner(brd)
   nil
 end
 
-player_score = 0
+player_score = 0 # I'm not sure the proper placement for these
 computer_score = 0
 loop do # main loop
   board = initialize_board
@@ -120,14 +115,14 @@ loop do # main loop
     computer_score += 1
   end
 
-  prompt "Player score is #{player_score}"
-  prompt "Computer score is #{computer_score}"
+  prompt "Player score is #{player_score}, first to 5 wins!"
+  prompt "Computer score is #{computer_score}, first to 5 wins!"
 
   if player_score == 5
-    prompt "Player wins!"
+    prompt "Player wins this round!"
     player_score = 0
   elsif computer_score == 5
-    prompt "Computer wins!"
+    prompt "Computer wins this round!"
     computer_score = 0
   end
 
