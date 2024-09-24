@@ -86,6 +86,16 @@ def detect_winner(brd)
   nil
 end
 
+def round_winner?(player, computer)
+  if player == 5
+    prompt "Player wins this round!"
+    player = 0
+  elsif computer == 5
+    prompt "Computer wins this round!"
+    computer = 0
+  end
+end
+
 player_score = 0 # I'm not sure the proper placement for these
 computer_score = 0
 loop do # main loop
@@ -118,13 +128,7 @@ loop do # main loop
   prompt "Player score is #{player_score}, first to 5 wins!"
   prompt "Computer score is #{computer_score}, first to 5 wins!"
 
-  if player_score == 5
-    prompt "Player wins this round!"
-    player_score = 0
-  elsif computer_score == 5
-    prompt "Computer wins this round!"
-    computer_score = 0
-  end
+  round_winner?(player_score, computer_score)
 
   prompt "Play again? (y or n)"
   answer = gets.chomp.strip
