@@ -1,20 +1,18 @@
 VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+WINNING_COMBINATIONS = {
+  'rock' => ['scissors', 'lizard'],
+  'paper' => ['rock', 'spock'],
+  'scissors' => ['paper', 'lizard'],
+  'lizard' => ['spock', 'paper'],
+  'spock' => ['scissors', 'rock']
+}
 
 def prompt(message)
   puts "=> #{message}"
 end
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'lizard' && second == 'paper') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'spock' && second == 'rock')
+  WINNING_COMBINATIONS[first].include?(second)
 end
 
 def display_results(player, computer)
@@ -30,10 +28,12 @@ end
 player_score = 0
 computer_score = 0
 loop do # main loop
-
   player_choice = ''
   loop do
     system('clear')
+    prompt "Welcome to Rock Paper Scissors Lizard Spock!"
+    prompt "The first to 3 total wins, well.... wins!"
+
     prompt "Choose one: #{VALID_CHOICES.join(', ')}"
     player_choice = gets.chomp
 
@@ -56,21 +56,16 @@ loop do # main loop
     computer_score += 1
   end
 
-  prompt "Your score is #{player_score}, The Computer's is #{computer_score}."
-
-  if player_score < 3 || computer_score < 3
-     prompt "First to 3 wins!"
-     sleep 2
+  if player_score == 3
+    prompt "**The Player has bested the Computer!**"
+  elsif computer_score == 3
+    prompt "**The Computer has bested the Player!**"
   end
 
-  break if player_score == 3 || computer_score == 3
-
-  #break if player_score == 3 || computer_score == 3
-
-  # answer = gets.chomp
-  # break unless answer.downcase.start_with?('y')
-
-
+  prompt "The current score is Player: #{player_score} and Computer: #{computer_score}"
+  prompt "Would you like to play again? (y/n)" # Can't figure out how to not have this after every move.
+  answer = gets.chomp
+  break unless answer.downcase.start_with?('y')
 end
 
 prompt "Thank you for playing. Goodbye!"
