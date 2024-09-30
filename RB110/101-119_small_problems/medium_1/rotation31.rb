@@ -1,9 +1,5 @@
 def rotate_rightmost_digits(number, location)
   array = number.digits.reverse
-  # remove = array[array.length-location]
-  # array.delete(remove)
-  # (array << remove).join.to_i
-
   array[-location..-1] = rotate_array(array[-location..-1])
   array.join.to_i
 end
