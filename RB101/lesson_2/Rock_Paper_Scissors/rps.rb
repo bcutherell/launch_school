@@ -1,27 +1,26 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+require 'yaml'
+MESSAGES = YAML.load_file('rps.yml')
+VALID_CHOICES = {
+  'rock' => 'rock',         'r' => 'rock',
+  'paper' => 'paper',       'p' => 'paper',
+  'scissors' => 'scissors', 'sc' => 'scissors',
+  'lizard' => 'lizard',     'l' => 'lizard',
+  'spock' => 'spock',       'sp' =>'spock'
+} # I don't know how to make this shorter, this feels unnecessarily long.
 WINNING_COMBINATIONS = {
   'rock' => ['scissors', 'lizard'],
   'paper' => ['rock', 'spock'],
   'scissors' => ['paper', 'lizard'],
   'lizard' => ['spock', 'paper'],
   'spock' => ['scissors', 'rock'],
-  # 'r' => ['scissors', 'lizard'],
-  # 'p' => ['rock', 'spock'],
-  # 'sc' => ['paper', 'lizard'],
-  # 'l' => ['spock', 'paper'],
-  # 'sp' => ['scissors', 'rock']
 }
-SHORTHAND = {
-  'r' => 'rock',
-  'p' => 'paper',
-  'sc' => 'scissors',
-  'l' => 'lizard',
-  'sp' => 'spock'
-}
-GRAND_MASTER_SCORE = 3
 
 def prompt(message)
   puts "=> #{message}"
+end
+
+def prompt_text(text_key)
+  prompt(MESSAGES[text_key])
 end
 
 def win?(first, second)
@@ -30,52 +29,62 @@ end
 
 def display_results(player, computer)
   if win?(player, computer)
-    "You won!"
+    MESSAGES["you_win_round"]
   elsif win?(computer, player)
-    "The Computer won!"
+    MESSAGES["computer_wins_round"]
   else
-    "It's a tie!"
+    MESSAGES["tie"]
   end
 end
 
-# def grand_master?(player_score, computer_score)
-#   if player_score == 3
-#     player_score = 0
-#     computer_score = 0
-#   elsif computer_score == 3
-#     player_score = 0
-#     computer_score = 0
-#   end
-# end
+def get_player_choice
+  gets.chomp.strip
+end
 
+def grand_master?(player_score, computer_score)
+  player_score >= 3 || computer_score >= 3
+end
+
+def master_announcement(player_score, computer_score)
+  if player_score == 3
+    prompt_text("master_player")
+  else
+    prompt_text("master_computer")
+  end
+end
 
 loop do # main loop
   player_score = 0
   computer_score = 0
 
   system('clear')
-  prompt "Welcome to Rock Paper Scissors Lizard Spock!"
-  prompt "The first to 3 total wins is the Grand Master!"
+  prompt_text("welcome")
+  # prompt "Welcome to Rock Paper Scissors Lizard Spock!"
+  # prompt "The first to 3 total wins is the Grand Master!"
+  # prompt "The current score is Player: #{player_score} and Computer: #{computer_score}"
 
-  while player_score < 3 && computer_score < 3
+  loop do
     player_choice = ''
-
     loop do
-      prompt "Choose one: #{VALID_CHOICES.join(', ')}"
-      player_choice = gets.chomp.strip
+      prompt "Choose one: (r)ock, (p)aper, (sc)issors, (l)izard, (sp)ock"
+      player_choice = get_player_choice
 
-      if VALID_CHOICES.include?(player_choice)
+      if VALID_CHOICES.keys.include?(player_choice)
+        player_choice = VALID_CHOICES[player_choice]
         break
+      elsif player_choice == 's'
+        prompt "Please enter either 'sc' for scissors or 'sp' for spock."
       else
         prompt "That's not a valid choice. Please try again."
       end
     end
 
-    computer_choice = VALID_CHOICES.sample
+    computer_choice = VALID_CHOICES.values.sample
 
-    prompt "You chose: #{player_choice}; the Computer chose: #{computer_choice}"
-
-    prompt display_results(player_choice, computer_choice)
+    result_message = "You chose: #{player_choice}; the Computer chose: #{computer_choice}"
+    result = display_results(player_choice, computer_choice)
+    prompt result_message
+    prompt result
 
     if win?(player_choice, computer_choice)
       player_score += 1
@@ -83,29 +92,19 @@ loop do # main loop
       computer_score += 1
     end
 
+    system('clear')
     prompt "The current score is Player: #{player_score} and Computer: #{computer_score}"
+    prompt result_message
+    prompt result
 
+    break if grand_master?(player_score, computer_score)
   end
 
-  if player_score == 3
-    prompt "**The Player has bested the Computer!**"
-    prompt "**The Player is the Grand Master!"
-  elsif computer_score == 3
-    prompt "**The Computer has bested the Player!**"
-    prompt "**The Computer is the Grand Master!"
-  end
-
-  prompt "Would you like to play again? (y/n)" # Can't figure out how to not have this after every move.
-  answer = gets.chomp.strip
+  master_announcement(player_score, computer_score)
+  prompt "Would you like to play again? (y/n)"
+  answer = get_player_choice
   break unless answer.downcase.start_with?('y')
 
-    # if player_score == 3
-    #   player_score = 0
-    #   computer_score = 0
-    # elsif computer_score == 3
-    #   player_score = 0
-    #   computer_score = 0
-    # end
 end
 
 prompt "Thank you for playing. Goodbye!"

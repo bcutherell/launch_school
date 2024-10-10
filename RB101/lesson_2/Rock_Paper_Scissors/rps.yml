@@ -1,0 +1,17 @@
+you_win_round: "You win this round!"
+computer_wins_round: "The Computer wins this round!"
+tie: "It's a tie!"
+master_player: |
+ 
+ => The Player has bested the Computer!
+ => The Player is the Grand Master!
+ =>
+master_computer: |
+ 
+ => The Computer has bested the Player!
+ => The Computer is the Grand Master!
+ =>
+welcome: |
+ Welcome to Rock Paper Scissors Lizard Spock!
+ => The first to 3 total wins is the Grand Master!
+ => The current score is Player: 0 and Computer: 0
