@@ -15,3 +15,11 @@ welcome: |
  Welcome to Rock Paper Scissors Lizard Spock!
  => The first to 3 total wins is the Grand Master!
  => The current score is Player: 0 and Computer: 0
+
+choose_one: "Choose one: (r)ock, (p)aper, (sc)issors, (l)izard, (sp)ock"
+sc_or_sp: "Please enter either 'sc' for scissors or 'sp' for spock."
+not_valid: "That's not a valid choice. Please try again."
+choice: "You chose: %{player_choice}; the Computer chose: %{computer_choice}"
+score: "The current score is Player: %{player_score} and Computer: %{computer_score}"
+again: "Would you like to play again? (y/n)"
+goodbye: "Thank you for playing. Goodbye!"
