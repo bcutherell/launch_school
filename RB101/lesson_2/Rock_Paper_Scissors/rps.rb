@@ -27,6 +27,24 @@ def win?(first, second)
   WINNING_COMBINATIONS[first].include?(second)
 end
 
+def get_player_choice
+  gets.chomp.strip
+end
+
+def valid_choice?(choice)
+  VALID_CHOICES.keys.include?(choice)
+end
+
+def choose_process(player_choice)
+  if valid_choice?(player_choice)
+    VALID_CHOICES[player_choice]
+  elsif player_choice == 's'
+    prompt_text("sc_or_sp")
+  else
+    prompt_text("not_valid")
+  end
+end
+
 def display_results(player, computer)
   if win?(player, computer)
     MESSAGES["you_win_round"]
@@ -37,8 +55,13 @@ def display_results(player, computer)
   end
 end
 
-def get_player_choice
-  gets.chomp.strip
+def score(player_choice, computer_choice, player_score, computer_score)
+  if win?(player_choice, computer_choice)
+    player_score += 1
+  elsif win?(computer_choice, player_choice)
+    computer_score += 1
+  end
+  return player_score, computer_score
 end
 
 def grand_master?(player_score, computer_score)
@@ -59,21 +82,20 @@ loop do # main loop
 
   system('clear')
   prompt_text("welcome")
+  prompt_text("rules")
+  prompt_text("ready?")
+  gets
+  system('clear')
 
   loop do
     player_choice = ''
+
     loop do
+      # prompt MESSAGES["score"] % { player_score: player_score, computer_score: computer_score }
       prompt_text("choose_one")
       player_choice = get_player_choice
-
-      if VALID_CHOICES.keys.include?(player_choice)
-        player_choice = VALID_CHOICES[player_choice]
-        break
-      elsif player_choice == 's'
-        prompt_text("sc_or_sp")
-      else
-        prompt_text("not_valid")
-      end
+      player_choice = choose_process(player_choice)
+      break if player_choice
     end
 
     computer_choice = VALID_CHOICES.values.sample
@@ -83,11 +105,7 @@ loop do # main loop
     prompt result_message
     prompt result
 
-    if win?(player_choice, computer_choice)
-      player_score += 1
-    elsif win?(computer_choice, player_choice)
-      computer_score += 1
-    end
+    player_score, computer_score = score(player_choice, computer_choice, player_score, computer_score)
 
     system('clear')
     prompt MESSAGES["score"] % { player_score: player_score, computer_score: computer_score }
