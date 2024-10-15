@@ -91,7 +91,6 @@ loop do # main loop
     player_choice = ''
 
     loop do
-      # prompt MESSAGES["score"] % { player_score: player_score, computer_score: computer_score }
       prompt_text("choose_one")
       player_choice = get_player_choice
       player_choice = choose_process(player_choice)
@@ -100,7 +99,7 @@ loop do # main loop
 
     computer_choice = VALID_CHOICES.values.sample
 
-    result_message = MESSAGES['choice'] % { player_choice: player_choice, computer_choice: computer_choice }
+    result_message = format(MESSAGES['choice'], player_choice: player_choice, computer_choice: computer_choice)
     result = display_results(player_choice, computer_choice)
     prompt result_message
     prompt result
@@ -108,7 +107,7 @@ loop do # main loop
     player_score, computer_score = score(player_choice, computer_choice, player_score, computer_score)
 
     system('clear')
-    prompt MESSAGES["score"] % { player_score: player_score, computer_score: computer_score }
+    prompt "#{MESSAGES['p_score']} #{player_score} #{MESSAGES['c_score']} #{computer_score}"
     prompt result_message
     prompt result
 
