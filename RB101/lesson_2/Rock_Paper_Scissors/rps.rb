@@ -28,7 +28,7 @@ def win?(first, second)
 end
 
 def get_player_choice
-  gets.chomp.strip
+  gets.chomp.downcase.strip
 end
 
 def valid_choice?(choice)

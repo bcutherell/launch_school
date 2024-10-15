@@ -1,6 +1,12 @@
+welcome: |
+ Welcome to Rock Paper Scissors Lizard Spock!
+ =>
+ => The first to 3 total wins is the Grand Master!
+
 rules: |
 
  => The rules are as follows, its very simple...
+ =>
  => Scissors cuts Paper
  => Paper covers Rock
  => Rock crushes Lizard
@@ -18,18 +24,13 @@ ready?: "Press enter to begin!"
 master_player: |
  
  => The Player has bested the Computer!
- =>
- => The Player is the Grand Master!
+ =>   The Player is the Grand Master!
  =>
 master_computer: |
  
  => The Computer has bested the Player!
+ =>  The Computer is the Grand Master!
  =>
- => The Computer is the Grand Master!
- =>
-welcome: |
- Welcome to Rock Paper Scissors Lizard Spock!
- => The first to 3 total wins is the Grand Master!
 
 you_win_round: "You win this round!"
 computer_wins_round: "The Computer wins this round!"
@@ -40,4 +41,4 @@ not_valid: "That's not a valid choice. Please try again."
 choice: "You chose: %{player_choice}; the Computer chose: %{computer_choice}"
 score: "The current score is Player: %{player_score} and Computer: %{computer_score}"
 again: "Would you like to play again? (y/n)"
-goodbye: "We'll see you next time!"
+goodbye: "We'll see you next time, thanks for playin'!"
