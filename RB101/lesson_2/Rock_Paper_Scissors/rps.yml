@@ -45,4 +45,4 @@ score: "The current score is Player: %{player_score} and Computer: %{computer_sc
 p_score: "The current score is Player:"
 c_score: "and Computer:"
 again: "Would you like to play again? (y/n)"
-goodbye: "We'll see you next time, thanks for playin'!"
+goodbye: "We'll see you next time, thanks for playing!"
