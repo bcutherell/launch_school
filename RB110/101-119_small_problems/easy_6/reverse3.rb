@@ -1,5 +1,13 @@
 def reverse!(array)
-  array.join.digits
+  left = 0
+  right = -1
+
+  while left < array.size / 2
+    array[left], array[right] = array[right], array[left]
+    left += 1
+    right -= 1
+  end
+  array
 end
 
 
