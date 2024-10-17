@@ -1,5 +1,5 @@
 def reverse!(array)
-  
+  array.join.digits
 end
 
 

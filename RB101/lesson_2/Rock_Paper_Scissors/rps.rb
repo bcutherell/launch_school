@@ -6,7 +6,7 @@ VALID_CHOICES = {
   'scissors' => 'scissors', 'sc' => 'scissors',
   'lizard' => 'lizard',     'l' => 'lizard',
   'spock' => 'spock',       'sp' => 'spock'
-} # I don't know how to make this shorter, this feels unnecessarily long.
+}
 WINNING_COMBINATIONS = {
   'rock' => ['scissors', 'lizard'],
   'paper' => ['rock', 'spock'],
