@@ -35,14 +35,22 @@ def valid_choice?(choice)
   VALID_CHOICES.keys.include?(choice)
 end
 
+# def choose_process(player_choice)
+#   if valid_choice?(player_choice)
+#     VALID_CHOICES[player_choice]
+#   elsif player_choice == 's'
+#     prompt_text("sc_or_sp")
+#   else
+#     prompt_text("not_valid")
+#   end
+# end
+
 def choose_process(player_choice)
-  if valid_choice?(player_choice)
-    VALID_CHOICES[player_choice]
-  elsif player_choice == 's'
-    prompt_text("sc_or_sp")
-  else
-    prompt_text("not_valid")
-  end
+  return VALID_CHOICES[player_choice] if valid_choice?(player_choice)
+
+  message = player_choice == 's' ? "sc_or_sp" : "not_valid"
+  prompt_text(message)
+  nil
 end
 
 def display_results(player, computer)
@@ -99,15 +107,18 @@ loop do # main loop
 
     computer_choice = VALID_CHOICES.values.sample
 
-    result_message = format(MESSAGES['choice'], player_choice: player_choice, computer_choice: computer_choice)
+    result_message = "#{MESSAGES['p_choice']} #{player_choice}; "\
+                     "#{MESSAGES['c_choice']} #{computer_choice}"
     result = display_results(player_choice, computer_choice)
     prompt result_message
     prompt result
 
-    player_score, computer_score = score(player_choice, computer_choice, player_score, computer_score)
+    player_score, computer_score = score(player_choice, computer_choice,
+                                         player_score, computer_score)
 
     system('clear')
-    prompt "#{MESSAGES['p_score']} #{player_score} #{MESSAGES['c_score']} #{computer_score}"
+    prompt "#{MESSAGES['p_score']} #{player_score} "\
+           "#{MESSAGES['c_score']} #{computer_score}"
     prompt result_message
     prompt result
 

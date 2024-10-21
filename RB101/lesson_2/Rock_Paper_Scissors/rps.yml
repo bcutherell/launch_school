@@ -38,6 +38,8 @@ tie: "It's a tie!"
 choose_one: "Choose one: (r)ock, (p)aper, (sc)issors, (l)izard, (sp)ock"
 sc_or_sp: "Please enter either 'sc' for scissors or 'sp' for spock."
 not_valid: "That's not a valid choice. Please try again."
+# format(MESSAGES['choice'], player_choice: player_choice, computer_choice: computer_choice)
+# code for choice, below
 choice: "You chose: %{player_choice}; the Computer chose: %{computer_choice}"
 p_choice: "You chose:"
 c_choice: "the Computer chose:"
