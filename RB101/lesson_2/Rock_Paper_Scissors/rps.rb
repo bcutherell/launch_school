@@ -23,6 +23,15 @@ def prompt_text(text_key)
   prompt(MESSAGES[text_key])
 end
 
+def welcome_rules_ready
+  system('clear')
+  prompt_text("welcome")
+  prompt_text("rules")
+  prompt_text("ready?")
+  gets
+  system('clear')
+end
+
 def win?(first, second)
   WINNING_COMBINATIONS[first].include?(second)
 end
@@ -54,13 +63,9 @@ def choose_process(player_choice)
 end
 
 def display_results(player, computer)
-  if win?(player, computer)
-    MESSAGES["you_win_round"]
-  elsif win?(computer, player)
-    MESSAGES["computer_wins_round"]
-  else
-    MESSAGES["tie"]
-  end
+  return MESSAGES["you_win_round"] if win?(player, computer)
+
+  win?(computer, player) ? MESSAGES["computer_wins_round"] : MESSAGES["tie"]
 end
 
 def score(player_choice, computer_choice, player_score, computer_score)
@@ -84,26 +89,25 @@ def master_announcement(player_score)
   end
 end
 
+def player_choice_process
+  loop do
+    prompt_text("choose_one")
+    player_choice = get_player_choice
+    player_choice = choose_process(player_choice)
+    return player_choice if player_choice
+  end
+end
+
 loop do # main loop
   player_score = 0
   computer_score = 0
 
-  system('clear')
-  prompt_text("welcome")
-  prompt_text("rules")
-  prompt_text("ready?")
-  gets
-  system('clear')
+  welcome_rules_ready
 
   loop do
-    player_choice = ''
+    # player_choice = ''
 
-    loop do
-      prompt_text("choose_one")
-      player_choice = get_player_choice
-      player_choice = choose_process(player_choice)
-      break if player_choice
-    end
+    player_choice = player_choice_process
 
     computer_choice = VALID_CHOICES.values.sample
 
