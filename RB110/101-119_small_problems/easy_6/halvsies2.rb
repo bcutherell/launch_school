@@ -1,7 +1,8 @@
 def halvsies(array)
-  new_array = []
-  new_array << array
-  new_array << array
+  middle = (array.size / 2.0).round
+  first_half = array.slice(0, middle)
+  second_half = array.slice(middle, array.size - middle)
+  [first_half, second_half]
 end
 
 p halvsies([1, 2, 3, 4]) #== [[1, 2], [3, 4]] # true
