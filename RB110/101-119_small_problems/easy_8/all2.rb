@@ -4,7 +4,6 @@ end
 
 def substrings(string)
   array = string.chars
-  counter = 0
   new_arr = []
 
   loop do
