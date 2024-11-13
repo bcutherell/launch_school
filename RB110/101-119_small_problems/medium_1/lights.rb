@@ -1,31 +1,30 @@
-def into_hash(number)
+def initialize_lights(number)
   hsh = {}
   (1..number).each { |num| hsh[num] = "OFF" }
   hsh
 end
 
+def toggle_light(light)
+  if light == "ON"
+    'OFF'
+  else
+    'ON'
+  end
+end
+
 def lights(number)
-  hsh = into_hash(number)
+  hsh = initialize_lights(number)
   keys = hsh.keys
   count = 0
   iteration = 1
+  hsh2 = {}
 
-  loop do
-    break if count == hsh.length
-    hsh.each do |key, value|
-      if key % iteration == 0
-        if hsh[iteration] == "OFF"
-          hsh[iteration] = "ON"
-        elsif hsh[iteration] == "ON"
-          hsh[iteration] = "OFF"
-        end
-      end
+  hsh.each do |key, value|
+    if key % iteration == 0
+      hsh2[value] = toggle_light(value)
     end
-      count += 1
-      iteration += 1
   end
-
-  hsh
+  hsh2
 end
 
 p lights(5)
