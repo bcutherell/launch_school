@@ -15,12 +15,26 @@ def max_rotation(number)
   holder = []
 
   loop do 
-    break if count == array.length
-    holder << rotate_rightmost_digits(array[count..-1].join.to_i, count)
-    count += 1
+  break if count == array.length
+  holder << rotate_rightmost_digits(number, (array.size - count))
+  count += 1
   end
 
   holder
+
+  # array = number.digits.reverse
+  # count = array.length
+  # holder = []
+
+  # loop do 
+  #   holder << rotate_rightmost_digits(number, array.length)
+  #   count -= 1
+  #   break if count == array.length
+  # end
+
+  # holder
+
+
 end
 
 
