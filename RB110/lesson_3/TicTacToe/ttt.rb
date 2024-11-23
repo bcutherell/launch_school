@@ -1,4 +1,7 @@
 require 'pry'
+require 'yaml'
+
+MESSAGES = YAML.load_file('ttt.yml')
 
 WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] +
                 [[1, 4, 7], [2, 5, 8], [3, 6, 9]] +
@@ -86,38 +89,42 @@ def detect_winner(brd)
   nil
 end
 
-def round_winner?(player, computer)
-  if player == 5
-    prompt "Player wins this round!"
-    player = 0
-  elsif computer == 5
-    prompt "Computer wins this round!"
-    computer = 0
+# def grand_winner?(player, computer)
+#   if player == 5
+#     prompt "The Player is the Grandmaster!"
+#   elsif computer == 5
+#     prompt "The Computer is the Grandmaster!"
+#   end
+# end
+
+def game_loop(brd)
+  loop do
+    display_board(brd)
+
+    player_places_piece!(brd)
+    break if someone_won?(brd) || board_full?(brd)
+
+    computer_places_piece!(brd)
+    break if someone_won?(brd) || board_full?(brd)
   end
 end
 
-player_score = 0 # I'm not sure the proper placement for these
+def display_winner(brd)
+  if someone_won?(brd)
+    prompt "#{detect_winner(brd)} won!"
+  else
+    prompt "It's a tie!"
+  end
+end
+
+player_score = 0
 computer_score = 0
 loop do # main loop
   board = initialize_board
 
-  loop do
-    display_board(board)
-
-    player_places_piece!(board)
-    break if someone_won?(board) || board_full?(board)
-
-    computer_places_piece!(board)
-    break if someone_won?(board) || board_full?(board)
-  end
-
+  game_loop(board)
   display_board(board)
-
-  if someone_won?(board)
-    prompt "#{detect_winner(board)} won!"
-  else
-    prompt "It's a tie!"
-  end
+  display_winner(board)
 
   if detect_winner(board) == 'Player'
     player_score += 1
@@ -128,7 +135,14 @@ loop do # main loop
   prompt "Player score is #{player_score}, first to 5 wins!"
   prompt "Computer score is #{computer_score}, first to 5 wins!"
 
-  round_winner?(player_score, computer_score)
+  # grand_winner?(player_score, computer_score)
+  if player_score == 5
+    prompt "The Player is the Grandmaster!"
+    player_score = 0
+  elsif computer_score == 5
+    prompt "The Computer is the Grandmaster!"
+    computer_score = 0
+  end
 
   prompt "Play again? (y or n)"
   answer = gets.chomp.strip
@@ -136,3 +150,10 @@ loop do # main loop
 end
 
 prompt "Thanks for playing Tic Tac Toe! Goodbye!"
+
+
+# need to figure out score incrementation method
+# need to do yaml file
+# need to figure out grandmaster method
+# would prefer if it displayed score every move and asks if
+#   you want to play again after someone gets 5 wins
