@@ -1,20 +1,19 @@
-total_male_age = 0
+answer = [{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}]
 
-munsters = {
-  "Herman" => { "age" => 32, "gender" => "male" },
-  "Lily" => { "age" => 30, "gender" => "female" },
-  "Grandpa" => { "age" => 402, "gender" => "male" },
-  "Eddie" => { "age" => 10, "gender" => "male" },
-  "Marilyn" => { "age" => 23, "gender" => "female"}
-}
-
-munsters.each do |member, details|
-  if details["gender"] == "male"
-    total_male_age += details["age"]
+plus = answer.map do |hsh|
+  fuck = {}
+  hsh.each do |key, value|
+    fuck[key] = value + 1
   end
+  fuck
 end
 
-p total_male_age
+p plus
+
+
+
+
+
 
 
 
