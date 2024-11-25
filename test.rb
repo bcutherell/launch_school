@@ -1,59 +1,20 @@
-answer = [{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}]
-
-plus = answer.map do |hsh|
-  fuck = {}
-  hsh.each do |key, value|
-    fuck[key] = value + 1
-  end
-  fuck
-end
-
-p plus
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def anagram?(word, array)
-#   array.include?(word.chars.sort.join)
+# def anagram?(word1, word2)
+#   word1.chars.sort == word2.chars.sort
 # end
-
 
 # def groupAnagrams(array)
-#   answer = []
-#   sorted = array.map { |word| word.chars.sort.join }
-
+#   anagrams = []
 #   array.each do |word|
-#     if answer.include?(sorted)
-
+#     if anagrams.empty?
+#       anagrams << word
+#     elsif anagram?(anagrams[0], word)
+#       anagrams << word
+#     else
+#     end
+#   end
+#   anagrams
 # end
+
 
 # # result = {}
 
@@ -67,14 +28,40 @@ p plus
 # # end
 
 
-# p groupAnagrams(['listen', 'silent', 'enlist', 'hello', 'olhel'])
-# # Output: [['listen', 'silent', 'enlist'], ['hello', 'olhel']]
+# def groupAnagrams(words)
+#   anagram_groups = {}
 
-# p groupAnagrams(['abc', 'bca', 'cab', 'def', 'fed'])
-# # Output: [['abc', 'bca', 'cab'], ['def', 'fed']]
+#   words.each do |word|
+#     sorted_word = word.chars.sort.join
+#     anagram_groups[sorted_word] ||= []
+#     anagram_groups[sorted_word] << word
+#   end
+#   anagram_groups.values
+# end
 
-# p groupAnagrams(['cat', 'dig', 'tac', 'god', 'act'])
-# # Output: [['cat', 'tac', 'act'], ['dig', 'god']]
+def groupAnagrams(words)
+  anagram_groups = {}
+
+  words.each do |word|
+    sorted_word = word.chars.sort.join
+    if anagram_groups.has_key?(sorted_word)
+      anagram_groups[sorted_word] << word
+    else
+      anagram_groups[sorted_word] = [word]
+    end
+  end
+
+  anagram_groups
+end
+
+p groupAnagrams(['listen', 'silent', 'enlist', 'hello', 'olhel'])
+# Output: [['listen', 'silent', 'enlist'], ['hello', 'olhel']]
+
+p groupAnagrams(['abc', 'bca', 'cab', 'def', 'fed'])
+# Output: [['abc', 'bca', 'cab'], ['def', 'fed']]
+
+p groupAnagrams(['cat', 'dig', 'tac', 'god', 'act'])
+# Output: [['cat', 'tac', 'act'], ['dig', 'god']]
 
 
 
