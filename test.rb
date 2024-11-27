@@ -51,7 +51,7 @@ def groupAnagrams(words)
     end
   end
 
-  anagram_groups
+  anagram_groups.values
 end
 
 p groupAnagrams(['listen', 'silent', 'enlist', 'hello', 'olhel'])
