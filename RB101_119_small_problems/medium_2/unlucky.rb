@@ -1,3 +1,9 @@
 require 'date'
 
-p Date.new(1752, 01, 01).to_s
+Date.new(1752, 01, 01)
+
+def friday_13th(year)
+  counter = 0
+
+end
+
